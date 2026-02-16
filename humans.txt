@@ -1,0 +1,15 @@
+/* TEAM */
+Creator: [Viktor Barykin]
+Researcher, Physicist, Mathematician
+
+Site Developer: [Oleg Barykin ici]
+Contact: contact@bacadem.org
+Languages: PHP, HTML5, JavaScript
+
+/* SITE */
+Last update: 2025-06-20
+Website: https://bacadem.org
+Made with care for the scientific community.
+
+/* THANKS */
+Thanks to all those who support independent science and open access to knowledge.

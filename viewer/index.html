@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>PDF Viewer</title>
+  <script src="pdf.js/build/pdf.js"></script>
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'pdf.js/build/pdf.worker.js';
+  </script>
+  <script src="viewer.js" defer></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f7f7f7;
+    }
+    #controls {
+      margin-bottom: 15px;
+    }
+    button {
+      background-color: #0057a3;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      margin: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0073e6;
+    }
+    #viewer-container {
+      position: relative;
+      display: inline-block;
+    }
+    canvas {
+      position: absolute;
+      z-index: 1;
+      border: 1px solid #ccc;
+    }
+    /*#text-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .textLayer > div {
+      pointer-events: auto;
+    }*/
+  </style>
+</head>
+<body>
+  <div id="controls">
+    <button onclick="prevPage()">Précédente</button>
+    <span>Page: <span id="page_num">1</span> / <span id="page_count">?</span></span>
+    <button onclick="nextPage()">Suivante</button>
+  </div>
+  <div id="viewer-container">
+    <canvas id="pdf-render"></canvas>
+    <!--<div id="text-layer" class="textLayer"></div>-->
+  </div>
+</body>
+</html>

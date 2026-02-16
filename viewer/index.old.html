@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<head>
+  <meta charset="utf-8">
+  <title>PDF Viewer</title>
+
+  <!-- Charger PDF.js -->
+  <script src="pdf.js/build/pdf.js"></script>
+
+  <!-- Initialiser correctement pdfjsLib -->
+  <script>
+    if (window['pdfjsLib']) {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'pdf.js/build/pdf.worker.js';
+    } else {
+      console.error("⚠️ Erreur : pdfjsLib n'est pas défini. Vérifie le chemin vers pdf.js !");
+    }
+  </script>
+
+  <!-- Charger ton script viewer.js ensuite -->
+  <script src="viewer.js" defer></script>
+
+  <style>
+    /*canvas { border: 1px solid #ccc; margin-top: 10px; }*/
+    #controls { margin: 10px 0; }
+    #text-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    canvas {
+      position: absolute;
+      z-index: 1;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="controls">
+    <button onclick="prevPage()">Précédente</button>
+    <span>Page: <span id="page_num">1</span> / <span id="page_count">?</span></span>
+    <button onclick="nextPage()">Suivante</button>
+  </div>
+  <div style="position: relative;">
+  <canvas id="pdf-render"></canvas>
+  <div id="text-layer" class="textLayer"></div>
+</div>
+ 
+</body>
+</html>

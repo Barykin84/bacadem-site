@@ -9,7 +9,7 @@ $message = trim($_POST['message'] ?? '');
 $recaptcha_response = $_POST['g-recaptcha-response'] ?? '';
 
 // Vérifier reCAPTCHA avec la clé secrète de test
-$secret = "6Lc9MWUrAAAAAJjY7LUud1VeApeB2qVlr_dB-Rhz";
+$secret = "klé_google";
 $verify = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secret}&response={$recaptcha_response}");
 $response = json_decode($verify);
 
